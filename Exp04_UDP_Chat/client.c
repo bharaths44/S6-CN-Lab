@@ -6,8 +6,8 @@
 int main()
 {
 	int clientSocket;
-	char buffer[1024];
-	char buff[1024];
+	char buffer[2048];
+	char buff[2048];
 	struct sockaddr_in serverAddr;
 	socklen_t addr_size;
 	
@@ -22,13 +22,13 @@ int main()
 	while(1)
 	{
 		printf("Enter the message :");
-		fgets(buff,1024,stdin);
+		fgets(buff,2048,stdin);
 		printf("Message sent to Server \n");
 		
 		strcpy(buffer,buff);
 		sendto(clientSocket, buffer, strlen(buffer), 0, (struct sockaddr *)&serverAddr, addr_size); // Changed send to sendto
 		
-		recvfrom(clientSocket, buffer, 1024, 0, NULL, NULL); // Changed recv to recvfrom
+		recvfrom(clientSocket, buffer, 2048, 0, NULL, NULL); // Changed recv to recvfrom
 		printf("Reply from server > %s \n",buffer);
 	}
 }

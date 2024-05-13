@@ -1,0 +1,1 @@
+THis is sample daa for sending file over ftp 

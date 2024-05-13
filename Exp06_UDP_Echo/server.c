@@ -6,8 +6,8 @@
 int main()
 {
 	int welcomeSocket;
-	char buffer[1024];
-	char buf[1024];
+	char buffer[2048];
+	char buf[2048];
 	struct sockaddr_in serverAddr, clientAddr;
 	socklen_t addr_size;
 	
@@ -23,7 +23,7 @@ int main()
 	while(1)
 	{
 		printf("\n\n");
-		recvfrom(welcomeSocket, buffer, 1024, 0, (struct sockaddr *)&clientAddr, &addr_size); // Changed recv to recvfrom
+		recvfrom(welcomeSocket, buffer, 2048, 0, (struct sockaddr *)&clientAddr, &addr_size); // Changed recv to recvfrom
 		printf("Message from Client > %s \n", buffer);
 		
 		printf("Message echoed to Client \n");
