@@ -8,11 +8,8 @@ int main()
 {
 	int clientSocket;
 	char buffer[1024];
-	char g;
-	char buff[1024];
 	struct sockaddr_in serverAddr;
 	socklen_t addr_size;
-	struct sockaddr_storage serverStorage;
 	
 	clientSocket = socket(AF_INET , SOCK_STREAM, 0);
 	serverAddr.sin_family = AF_INET;
@@ -32,10 +29,9 @@ int main()
 	while(1)
 	{
 		printf("Enter the message :");
-		fgets(buff,1024,stdin);
+		fgets(buffer,1024,stdin);
 		printf("Message sent to Server \n");
 		
-		strcpy(buffer,buff);
 		send(clientSocket,buffer,sizeof(buffer),0);
 		
 		recv(clientSocket ,buffer,1024,0);

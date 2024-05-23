@@ -8,7 +8,6 @@ int main()
 	int welcomeSocket,newSocket;
 	char buffer[1024];
 	char buf[1024];
-	char g;
 	struct sockaddr_in serverAddr;
 	struct sockaddr_storage serverStorage;
 	socklen_t addr_size;
